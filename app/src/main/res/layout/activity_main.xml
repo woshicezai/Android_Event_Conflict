@@ -1,18 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <com.example.hll_mall.android_event_confict.ScrollHorizontal
+        android:id="@+id/scroll_horizontal"
+        android:layout_width="300dp"
+        android:layout_height="400dp"
+        android:background="#d13c3c"
+        android:gravity="center">
 
-</android.support.constraint.ConstraintLayout>
+        <com.example.hll_mall.android_event_confict.ScrollVertical
+            android:id="@+id/scroll_vertical"
+            android:layout_width="200dp"
+            android:layout_height="300dp"
+            android:background="#5181b1"
+            android:gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="手势冲突解决"
+                android:textColor="#fff"/>
+        </com.example.hll_mall.android_event_confict.ScrollVertical>
+    </com.example.hll_mall.android_event_confict.ScrollHorizontal>
+
+</LinearLayout>
