@@ -32,19 +32,14 @@ public class ScrollHorizontal extends LinearLayout {
     public boolean onInterceptTouchEvent(MotionEvent ev) {
         switch (ev.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                MainActivity.Log("ScrollHorizontal-onInterceptTouchEvent-ACTION_DOWN");
-                point_x = (int) ev.getX();
-                point_y = (int) ev.getY();
-                isOver = false;
+                MainActivity.Log("ScrollHorizontal-onInterceptTouchEvent-ACTION_DOWN   ");
                 return false;
             case MotionEvent.ACTION_MOVE:
-                result = (Math.abs((int) ev.getX() - point_x) > Math.abs((int) ev.getY() - point_y) * 2);
-                MainActivity.Log("ScrollHorizontal-onInterceptTouchEvent-ACTION_MOVE   " + String.valueOf(result));
-                return result;
+                MainActivity.Log("ScrollHorizontal-onInterceptTouchEvent-ACTION_MOVE   ");
+                return true;
             default:
-                break;
+                return true;
         }
-        return super.onInterceptTouchEvent(ev);
     }
 
     @Override
@@ -55,7 +50,7 @@ public class ScrollHorizontal extends LinearLayout {
                 break;
             case MotionEvent.ACTION_MOVE:
                 MainActivity.Log("ScrollHorizontal-onTouchEvent-ACTION_MOVE   ");
-                scrollBy((int) (point_x - event.getX()) / 2, 0);
+                scrollBy((int) (point_x - event.getX()) / 4, 0);
                 break;
         }
         return true;
